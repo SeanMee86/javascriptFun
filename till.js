@@ -1,8 +1,8 @@
 function tickets(peopleInLine){
     console.log(peopleInLine);
-    var till = [];
-    for(var i = 0; i < peopleInLine.length; i++){
-        var person = peopleInLine[i];
+    let till = [];
+    for(let i = 0; i < peopleInLine.length; i++){
+        let person = peopleInLine[i];
         if(person >= 25){
             till.push(person);
             if(person > 25) {
@@ -19,7 +19,7 @@ function tickets(peopleInLine){
                 return 'NO';
             }
         }
-    };
+    }
     return 'YES';
 }
 

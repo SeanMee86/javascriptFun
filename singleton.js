@@ -20,8 +20,8 @@ const singleton = (() => {
 })();
 
 run = () => {
-    var inst1 = singleton.getInstance();
-    var inst2 = singleton.getInstance();
+    const inst1 = singleton.getInstance();
+    const inst2 = singleton.getInstance();
 
     alert(`Same instance? ${inst1 === inst2 ? 'yes' : 'no'}`)
 };

@@ -54,7 +54,7 @@ $(document).ready(function(){
     }
 
     function decimalClick(){
-        if (inputArray.includes('.')){
+        if (inputArray.includes('.') || inputArray[0].toString().split('').filter(char => char === '.').length !== 0){
             return false;
         }
         else {

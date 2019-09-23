@@ -54,7 +54,7 @@ $(document).ready(function(){
     }
 
     function decimalClick(){
-        if (inputArray[inputArray.length-1]==='.'){
+        if (inputArray.includes('.')){
             return false;
         }
         else {
@@ -92,9 +92,6 @@ $(document).ready(function(){
             mathArray.push(cacheArray[0]);
             mathArray.push(cacheArray[1]);
             $('#input').val(do_math());
-        }
-        else{
-
         }
     }
 

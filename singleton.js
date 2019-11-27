@@ -1,13 +1,12 @@
 const singleton = (() => {
     let instance;
     createInstance = () => {
-        const person = {
+        return {
             greeting: 'hello',
             sayHello: () => {
                 console.log(this.greeting);
             }
         };
-        return person;
     };
     return {
         getInstance: () => {

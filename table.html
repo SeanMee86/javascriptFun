@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .main-table {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .table-cell-main, .table-cell-side {
+            box-sizing: border-box;
+            flex-grow: 1;
+            overflow: hidden;
+            border: solid #000 1px;
+            padding: 10px;
+        }
+
+        .table-cell-side {
+            width: 25%;
+        }
+
+        .table-cell-main {
+            width: 50%;
+            background-color: rgba(150, 150, 150, 0.4);
+        }
+
+        .table-head-left {
+            color: #fff;
+            background-color: #d5a6bd;
+            text-align: center;
+        }
+
+        .table-cell-side.week, .table-cell-side.dollars {
+            display: flex;
+            align-items: center;
+        }
+
+        .table-cell-side.dollars {
+            justify-content: flex-end;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-table">
+        <div class="table-cell-side"></div>
+        <div class="table-cell-main table-head-left">Cream Treatment</div>
+        <div class="table-cell-side" style="text-align: center;">Price</div>
+
+        <div class="table-cell-side week">Week 1</div>
+        <div class="table-cell-main">NEW PATIENT VISIT - In Clinic: History Taken, Labs Drawn, Body Composition Analysis and Cardiovascular Screening</div>
+        <div class="table-cell-side dollars">$560.00</div>
+
+        <div class="table-cell-side week">Week 2</div>
+        <div class="table-cell-main">"DISCUSSION VISIT
+            - Meet with medical provider, discuss lab results and tailored treatment plan developed"</div>
+        <div class="table-cell-side dollars">No Cost</div>
+
+        <div class="table-cell-side week">Week 3</div>
+        <div class="table-cell-main">"MEDICATIONS ARRIVE
+            - Creams shipped to Patient Home, typically arrive within 10 days"</div>
+        <div class="table-cell-side dollars">No Cost</div>
+
+        <div class="table-cell-side week">Week 14</div>
+        <div class="table-cell-main">"RE-TEST VISIT
+            - Labs drawn in clinic after 90 days of cream treatment to determine your hormone levels"</div>
+        <div class="table-cell-side dollars">$360.00</div>
+
+        <div class="table-cell-side week">Week 15</div>
+        <div class="table-cell-main">"DISCISSION VISIT
+            - Meet with medical provider, discuss lab results and adjust treatment plan if indicated."</div>
+        <div class="table-cell-side dollars">No Cost</div>
+
+        <div class="table-cell-side week">Week 16</div>
+        <div class="table-cell-main">"MEDICATIONS ARRIVE
+            - Creams shipped to patient home, typically arrive within 10 days."</div>
+        <div class="table-cell-side dollars">No Cost</div>
+    </div>
+</body>
+</html>

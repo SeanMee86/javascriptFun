@@ -13,8 +13,8 @@ const expressServer = app.listen(PORT, console.log(`Listening on port: ${PORT}`)
 const io = socketio(expressServer);
 
 io.on('connection', (socket) => {
-    console.log('I am connected');
-    socket.on('testing', msg => {
-        io.emit('testingWorked', msg);
+    socket.on('updateBoard', board => {
+        console.log(board);
+        io.emit('sendUpdate', board);
     })
 });

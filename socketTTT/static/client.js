@@ -1,9 +1,22 @@
 const socket = io();
 let fullBoard;
 
+const clientPlayer = {
+    id: null,
+    isTurn: false,
+    room: null
+};
+
+const opponentPlayer = {
+    id: null,
+    isTurn: false,
+    room: null
+};
+
 window.onload = function() {
     buildGameBoard(3);
     cellClickHandler();
+    selectPlayerHandler();
 };
 
 const buildGameBoard = (boardSize) => {
@@ -17,6 +30,20 @@ const buildGameBoard = (boardSize) => {
                 .innerHTML += `<div col='${cellInd+1}' row="${rowInd+1}" class="gameCell"></div>`
         })
     })
+};
+
+const selectPlayer = () => {
+    const playerSelected = Array
+        .from(document.getElementsByName('player'))
+        .filter(player => player.checked);
+    clientPlayer.id = playerSelected[0].value;
+    document.getElementById('charSelectModal').style.display = 'none';
+    socket.emit('playerSelectionToServer', clientPlayer);
+};
+
+const selectPlayerHandler = () => {
+    document.getElementById('charSelectBtn')
+        .addEventListener('click', selectPlayer);
 };
 
 const cellClicked = (e) => {
@@ -43,6 +70,13 @@ const rebuildBoard = () => {
     });
     cellClickHandler()
 };
+
+socket.on('playerSelectionToClient', (data) => {
+    Array
+        .from(document.getElementsByName('player'))
+        .filter(player => player.value === data.player.id)[0]
+        .setAttribute('disabled', 'disabled');
+});
 
 socket.on('playerDisconnect', _ => {
     document.getElementById('gameBoard').innerHTML = '';

@@ -17,4 +17,7 @@ io.on('connection', (socket) => {
         console.log(board);
         io.emit('sendUpdate', board);
     })
+    socket.on('disconnect', () => {
+        io.emit('playerDisconnect')
+    })
 });

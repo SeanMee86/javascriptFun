@@ -6,7 +6,7 @@ window.onload = function() {
     cellClickHandler();
 };
 
-const buildGameBoard = (boardSize, boardRef) => {
+const buildGameBoard = (boardSize) => {
     const boardRows = new Array(boardSize);
     fullBoard = [...boardRows]
         .map(_ => [...boardRows]
@@ -33,6 +33,23 @@ const cellClickHandler = () => {
         })
 };
 
+const rebuildBoard = () => {
+    document.getElementById('gameBoard').innerHTML = '';
+    fullBoard.forEach((row, rowInd) => {
+        row.forEach((cell, cellInd) => {
+            document.getElementById('gameBoard')
+                .innerHTML += `<div col='${cellInd+1}' row="${rowInd+1}" class="gameCell">${cell===1 ? 'X' : ''}</div>`
+        })
+    });
+    cellClickHandler()
+};
+
+socket.on('playerDisconnect', _ => {
+    document.getElementById('gameBoard').innerHTML = '';
+    buildGameBoard(3);
+});
+
 socket.on('sendUpdate', board => {
-    console.log(board);
+    fullBoard = board;
+    rebuildBoard();
 });
